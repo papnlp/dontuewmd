@@ -1,5 +1,5 @@
-const token = <<5903216139:AAGOMD7unyFYiCTiSYFM4Z0-ctRQyX2yc2E>>
-const chat_id = <<1657791509>>
+const token = 5903216139:AAGOMD7unyFYiCTiSYFM4Z0-ctRQyX2yc2E
+const chat_id = 1657791509
 
 function sendForm()
 {
